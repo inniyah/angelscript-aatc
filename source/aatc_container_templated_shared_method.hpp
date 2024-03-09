@@ -68,7 +68,7 @@ namespace aatc {
 								cc->SetObject(lhs);
 								cc->SetArgObject(0, rhs);
 								cc->Execute();
-								return cc->GetReturnDWord() == -1;
+								return (int)cc->GetReturnDWord() < 0;
 							}
 						};
 
@@ -83,7 +83,7 @@ namespace aatc {
 								cc->SetArgObject(1, rhs);
 								funcptr->Execute(cc);
 
-								return cc->GetReturnDWord() == -1;
+								return (int)cc->GetReturnDWord() < 0;
 							}
 						};
 					};//namespace detail
@@ -888,7 +888,7 @@ namespace aatc {
 										if (t->func_equals) {
 											if (cc->GetReturnByte()) { found = 1; }
 										} else {
-											if (cc->GetReturnDWord() == 0) { found = 1; }
+											if ((int)cc->GetReturnDWord() == 0) { found = 1; }
 										}
 										if (found) {
 											found = 1;
@@ -981,7 +981,7 @@ namespace aatc {
 										cc->SetObject(value);
 										cc->SetArgObject(0, *it);
 										cc->Execute();
-										count += (cc->GetReturnDWord() == 0);
+										count += ((int)cc->GetReturnDWord() == 0);
 									}
 								}
 								t->els->contextcache_Return(cc);

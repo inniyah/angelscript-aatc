@@ -109,7 +109,7 @@ namespace aatc {
 					cc->SetArgObject(0, const_cast<void*>(rhs));
 					cc->Execute();
 					//result = (bool)cc->GetReturnByte();
-					result = (cc->GetReturnDWord() == -1);
+					result = ((int)cc->GetReturnDWord() < 0);
 
 					els->contextcache_Return(cc);
 
@@ -136,7 +136,7 @@ namespace aatc {
 					cc->SetObject(const_cast<void*>(lhs));
 					cc->SetArgObject(0, const_cast<void*>(rhs));
 					cc->Execute();
-					result = (cc->GetReturnDWord() != 0);
+					result = ((int)cc->GetReturnDWord() != 0);
 
 					els->contextcache_Return(cc);
 
@@ -229,7 +229,7 @@ namespace aatc {
 					cc->SetArgObject(0, const_cast<void*>(rhs.ptr));
 					cc->Execute();
 					//result = (bool)cc->GetReturnByte();
-					result = (cc->GetReturnDWord() == -1);
+					result = ((int)cc->GetReturnDWord() < 0);
 
 					els->contextcache_Return(cc);
 
@@ -276,7 +276,7 @@ namespace aatc {
 					cc->SetObject(const_cast<void*>(lhs.ptr));
 					cc->SetArgObject(0, const_cast<void*>(rhs.ptr));
 					cc->Execute();
-					result = (cc->GetReturnDWord() != 0);
+					result = ((int)cc->GetReturnDWord() != 0);
 
 					els->contextcache_Return(cc);
 
