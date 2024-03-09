@@ -1,10 +1,9 @@
 #include "as_engine.hpp"
 
-#include "scriptstdstring/scriptstdstring.h"
+#include <angelscript/scriptstdstring.h>
+//~ #include <angelscript/scriptarray.h>
 
 #include "../source/aatc.hpp"
-
-//#include "scriptarray/scriptarray.h"
 
 
 

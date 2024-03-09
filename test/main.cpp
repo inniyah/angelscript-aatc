@@ -1,10 +1,11 @@
 #include "as_engine.hpp"
-#include "scriptbuilder\scriptbuilder.h"
 
-#include "serializer\serializer.h"
+#include <angelscript/scriptbuilder.h>
+#include <angelscript/serializer.h>
 
 #include "../source/aatc.hpp"
 
+#include <cstdlib>
 
 
 
@@ -72,10 +73,11 @@ END_AS_NAMESPACE
 
 
 
-void main(){
+int main(int argc, char * argv[], char * envp[]) {
 	#if AS_USE_NAMESPACE
 		AngelScript::main_contents();
 	#else
 		main_contents();
 	#endif
+	return EXIT_SUCCESS;
 }
